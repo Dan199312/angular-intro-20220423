@@ -9,7 +9,12 @@ import { todo } from './model/todo';
 export class TodosComponent implements OnInit {
 
   public todos: todo[]=[];
-  
+  public text: string = 'type something';
+
+  public clear (){
+    this.text = '';
+  }
+
   constructor() { }
 
   ngOnInit(): void {
