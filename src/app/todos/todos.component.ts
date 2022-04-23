@@ -1,23 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { todo } from './model/todo';
+import {Component, OnInit} from '@angular/core';
+import {todo} from './model/todo';
 
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.scss']
+  styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent implements OnInit {
+  public todos: todo[] = [];
+  public text: string = '';
 
-  public todos: todo[]=[];
-  public text: string = 'type something';
+  public style = {
+    fontSize: '24px',
+    backgroundColor: '#eef',
+  };
 
-  public clear (){
+  public clear() {
     this.text = '';
   }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  public addTodo() {
+    const todo: todo = {
+      text: this.text,
+      created: Date.now(),
+      done: false,
+      priority: Math.ceil(Math.random() * 3),
+    };
+    this.todos.push(todo);
+    this.clear();
   }
 
+  public setDone(todo: todo) {
+    todo.done = true;
+  }
+
+  constructor() {}
+
+  ngOnInit(): void {}
 }
