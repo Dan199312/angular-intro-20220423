@@ -7,6 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CounterComponent implements OnInit {
 
+  value = 0;
+  text = 'ala ma kota';
+
+
+  increment (){
+    this.value+=10;
+  }
+
+  decrement (){
+    this.value-=10;
+  }
   constructor() { }
 
   ngOnInit(): void {
