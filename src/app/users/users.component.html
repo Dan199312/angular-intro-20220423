@@ -1,5 +1,5 @@
 
-<div *ngFor="let user of users">
+<div *ngFor="let user of users | sort: 'last_name'">
     <img [src]="user.avatar"/>
    <span> {{user.first_name}} {{user.last_name}}</span>
    <span appHighlight appHighlightColor = '#f03'> {{user.email}}</span>
